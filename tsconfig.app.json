@@ -16,6 +16,7 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "outDir": "dist/app",
 
     /* Linting */
     "strict": true,

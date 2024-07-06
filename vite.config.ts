@@ -7,15 +7,14 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve('packages/index.ts'),
-      name: 'componentsName',
-      fileName: (format) => `componentsName.${format}.js`,
+      name: 'annotation-react',
+      fileName: (format) => `annotation-react.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'antd'],
+      external: ['react', 'react-dom'],
       output: {
         globals: {
           react: 'react',
-          antd: 'antd',
           'react-dom': 'react-dom',
         },
       },
