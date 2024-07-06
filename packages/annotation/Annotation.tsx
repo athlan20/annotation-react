@@ -4,6 +4,8 @@ import { Flex } from './components/Flex';
 import { c } from './variables';
 
 import './annotation.less';
+import { Dialog, DialogContent, DialogTitle } from './components/ui/dialog';
+import './global.css';
 export interface PAnnotation {
   /** content to be showed */
   content?: string;
@@ -30,6 +32,11 @@ export function Annotation({ content }: PAnnotation) {
           <span>{content}</span>
         </div>
       </Flex>
+      <Dialog modal={false}>
+        <DialogContent className="DialogContent">
+          <DialogTitle>123</DialogTitle>
+        </DialogContent>
+      </Dialog>
     </React.Fragment>
   );
 }
