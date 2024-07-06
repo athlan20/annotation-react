@@ -16,13 +16,20 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-    "outDir": "dist/app",
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".",
+    "outDir": "dist/app",
+    "paths": {
+      "@/*": [
+        "./packages/*"
+      ]
+    }
   },
   "include": ["examples", "packages","tests", "stories"]
 }
