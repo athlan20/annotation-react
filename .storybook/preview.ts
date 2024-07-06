@@ -9,6 +9,9 @@ const preview: Preview = {
       },
     },
   },
+  // ...rest of preview
+  //👇 Enables auto-generated documentation for all stories
+  tags: ['autodocs'],
 };
 
 export default preview;
