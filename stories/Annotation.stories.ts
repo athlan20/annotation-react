@@ -31,9 +31,12 @@ export const NormalStory: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     // 👇 Simulate interactions with the component
-    const annoTarget = canvas.getByText('This is an annotation');
-    await expect(annoTarget).toBeInTheDocument();
+    const contentLayer = canvas.getByRole('content_layer');
+    await expect(contentLayer.textContent).toBe('This is an annotation');
 
-    await userEvent.pointer([{target: annoTarget, offset: 2, keys: '[MouseLeft>]'}, {offset: 5}])
+    // select the range of 2-5 of the text in the content layer
+    await userEvent.pointer([{target: contentLayer, offset: 2, keys: '[MouseLeft>]'}, {offset: 5},'[/MouseLeft]']);
+
+    
   },
 };
