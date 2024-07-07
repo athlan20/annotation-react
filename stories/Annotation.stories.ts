@@ -35,8 +35,10 @@ export const NormalStory: Story = {
     await expect(contentLayer.textContent).toBe('This is an annotation');
 
     // select the range of 2-5 of the text in the content layer
-    await userEvent.pointer([{target: contentLayer, offset: 2, keys: '[MouseLeft>]'}, {offset: 5},'[/MouseLeft]']);
-
-    
+    await userEvent.pointer([
+      { target: contentLayer, offset: 2, keys: '[MouseLeft>]' },
+      { offset: 5 },
+      '[/MouseLeft]',
+    ]);
   },
 };

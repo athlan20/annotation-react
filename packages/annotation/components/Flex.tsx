@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import './components.less';
+import './flex.less';
 
 export interface FlexProps extends React.HTMLAttributes<HTMLElement> {
   vertical?: boolean;
@@ -14,7 +14,17 @@ export interface FlexProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export const Flex = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
-  const { className, style, flex, gap, children, vertical = false, ...otherProps } = props;
+  const {
+    className,
+    style,
+    flex,
+    gap,
+    children,
+    justify = 'normal',
+    align = 'normal',
+    vertical = false,
+    ...otherProps
+  } = props;
 
   const prefixCls = 'anno_flex';
 
@@ -32,6 +42,11 @@ export const Flex = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => 
   if (gap) {
     mergedStyle.gap = gap;
   }
+
+  mergedStyle.justifyContent = justify;
+  mergedStyle.alignItems = align;
+
+  console.log({ mergedStyle });
 
   return (
     <div ref={ref} className={mergedCls} style={mergedStyle} {...otherProps}>
