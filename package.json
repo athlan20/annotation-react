@@ -5,6 +5,22 @@
   "main": "dist/annotation-react.umd.js",
   "module": "dist/annotation-react.es.js",
   "types": "dist/packages/index.d.ts",
+  "author": "ling",
+  "license": "MIT",
+  "keywords": [
+    "annotation",
+    "data-annotation",
+    "data annotation",
+    "mark",
+    "data mark",
+    "label",
+    "data label",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/athlan20/annotation-react"
+  },
   "files": [
     "/dist"
   ],
