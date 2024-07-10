@@ -4,7 +4,7 @@
   "type": "module",
   "main": "dist/annotation-react.umd.js",
   "module": "dist/annotation-react.es.js",
-  "types": "dist/annotation-react.d.ts",
+  "types": "dist/packages/index.d.ts",
   "files": [
     "/dist"
   ],
