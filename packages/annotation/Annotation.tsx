@@ -1,5 +1,12 @@
 import classNames from 'classnames';
-import React, { MouseEvent, useCallback, useLayoutEffect, useRef, useState } from 'react';
+import React, {
+  MouseEvent,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { PresetColors, c } from './variables';
 
 import './annotation.less';
@@ -24,6 +31,8 @@ export interface PAnnotation {
   hightlightBgColor?: string;
   /** can not mark */
   readonly?: boolean;
+  /** notify when annotations add or remove */
+  onChange?: (annoations: TAnnoDetail[]) => void;
 }
 
 /** remember the last selection for content before selecting tag */
@@ -42,6 +51,7 @@ export const Annotation = (props: PAnnotation) => {
     hightlightColor = 'white',
     hightlightBgColor = '#f50',
     readonly,
+    onChange,
   } = props;
   const ref = useRef<HTMLDivElement>(null);
   const contentLayerRef = useRef<HTMLDivElement>(null);
@@ -49,8 +59,15 @@ export const Annotation = (props: PAnnotation) => {
   const [dialogPos, setDialogPos] = useState([0, 0]);
   const [dialogHeight, setDialogHeight] = useState(0);
   const [tagColors, setTagColors] = useState<Map<TTag, string>>(new Map());
-
   const [annoContents, setAnnoContents] = useState<TAnnoDetail[]>([]);
+
+  useEffect(() => {
+    //when change annos ,notify parent with all usefull annotations
+    const useFullAnnoations = annoContents.filter((anno) => anno.tag);
+    if (onChange) {
+      onChange(useFullAnnoations);
+    }
+  }, [annoContents]);
 
   const dialogRef = useCallback((node: HTMLDivElement) => {
     if (node) {

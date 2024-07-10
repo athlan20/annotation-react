@@ -58,3 +58,12 @@ export function getAnnoContents(annos: TAnnoDetail[], sentence: string) {
   console.log({ annosAll });
   return annosAll;
 }
+
+/**
+ * async version of sleep
+ * @param millseconds 
+ * @returns 
+ */
+export async function sleep(millseconds: number) {
+  return new Promise((resolve) => setTimeout(resolve, millseconds));
+}

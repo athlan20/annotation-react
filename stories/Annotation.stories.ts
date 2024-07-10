@@ -1,3 +1,4 @@
+import { sleep } from '@/annotation/helpers/helper';
 import { TTag } from '@/annotation/interface';
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, waitFor, within } from '@storybook/test';
@@ -52,6 +53,9 @@ export const AddAnno: Story = {
   args: {
     sentence,
     tags,
+    onChange: (annos) => {
+      console.log(annos);
+    },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -65,7 +69,10 @@ export const AddAnno: Story = {
       { coords: { clientX: bounding.left + 55, clientY: bounding.top + 10 }, keys: '[/MouseLeft]' },
     ]);
 
+    await sleep(1000);
+
     await waitFor(() => canvas.getByRole('anno_dialog'));
+    await sleep(1000);
     //click the tag in the dialog
     await userEvent.click(canvas.getByRole('anno_dialog').querySelector('span')!);
   },
@@ -79,16 +86,17 @@ export const DeleteAnno: Story = {
       {
         start: 13,
         end: 22,
-        tag:tags[0],
-        text:'component',
+        tag: tags[0],
+        text: 'component',
       },
     ],
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     // 👇 Simulate interactions with the component
-    
+
     await waitFor(() => canvas.getByRole('anno_tag'));
+    await sleep(1000);
     await userEvent.click(canvas.getByRole('anno_tag').querySelector('.anno_icon_close')!);
     expect(canvas.queryByRole('anno_tag')).not.toBeInTheDocument();
   },

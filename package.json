@@ -2,6 +2,12 @@
   "name": "annotation-react",
   "version": "0.0.0",
   "type": "module",
+  "main": "dist/annotation-react.umd.js",
+  "module": "dist/annotation-react.es.js",
+  "types": "dist/annotation-react.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -44,13 +50,11 @@
     "storybook": "^8.1.11",
     "typescript": "^5.2.2",
     "vite": "^5.3.1",
+    "vite-plugin-dts": "^3.9.1",
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
-    "clsx": "^2.1.1",
-    "framer-motion": "^11.2.14",
-    "lucide-react": "^0.400.0"
+    "clsx": "^2.1.1"
   }
 }
