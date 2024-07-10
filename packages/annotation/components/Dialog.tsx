@@ -16,6 +16,8 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
 
   const mergedCls = classNames(className, prefixCls, {
     [`${prefixCls}_show`]: open,
+    [`${prefixCls}_fadeIn`]:open,
+    // [`anno_dialog_fadeIn`]:open,
   });
 
   const mergedStyle: React.CSSProperties = {
@@ -23,7 +25,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((props, ref)
   };
 
   return (
-    <div ref={ref} className={mergedCls} style={mergedStyle} {...otherProps}>
+    <div ref={ref} className={mergedCls} role={prefixCls} style={mergedStyle} {...otherProps}>
       {children}
     </div>
   );

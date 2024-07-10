@@ -3,17 +3,57 @@
 .@{prefixcls}_annotation { 
   position: relative;
 
-  .@{prefixcls}_tag_layer{
+  .@{prefixcls}_operation_layer,
+  .@{prefixcls}_anno_layer{
     position: absolute;
     top: 0;
     left: 0;
+    color:#fff0;
   }
 
-  .@{prefixcls}_tag_layer{
-    pointer-events: none;
+  .@{prefixcls}_operation_layer{
+    z-index: 1;
   }
 
-  .@{prefixcls}_tag_layer{
-    opacity: 0;
+  .@{prefixcls}_anno_layer{
+
+    .anno{
+      position: relative;
+      cursor: pointer;
+      // color:white;
+      // text-decoration: underline #f50 2px;
+      >div{
+        
+        position: absolute;
+        left: 0;
+        z-index: 2;
+      }
+    }
+    .motion{
+      animation: fadeIn 0.15s forwards;
+      
+      @keyframes fadeIn {
+        from{
+          transform: scale(0);
+        }
+        to {
+          transition: fadeIn transform;
+          // transform-origin: 1.4em -0.4em;
+        }
+      }
+    }
+  }
+
+  // .@{prefixcls}_anno_layer{
+  //   pointer-events: none;
+  // }
+
+  .@{prefixcls}_tag{
+    cursor: pointer;
+
+
+  }
+  .@{prefixcls}_dialog{
+    z-index: 5;
   }
 }

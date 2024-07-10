@@ -1,6 +1,6 @@
 import { Dialog } from '@/annotation/components/Dialog';
 import { Flex } from '@/annotation/components/Flex';
-import { Tag } from '@/annotation/components/tag';
+import { Tag } from '@/annotation/components/Tag';
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, within } from '@storybook/test';
 import { useState } from 'react';
@@ -28,9 +28,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Function to emulate pausing between interactions
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+// function sleep(ms: number) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const NormalStory: Story = {
@@ -38,9 +38,11 @@ export const NormalStory: Story = {
     open: false,
     children: (
       <Flex vertical gap="small">
-        <Tag>tag1</Tag>
-        <Tag color='purple'>tag2</Tag>
-        <Tag color='blue'>tag3</Tag>
+        <Tag color="red" closable>
+          tag1
+        </Tag>
+        <Tag color="magenta">tag2</Tag>
+        <Tag color="blue">tag3</Tag>
         <Tag>tag4</Tag>
         <Tag>tag5</Tag>
       </Flex>

@@ -1,10 +1,96 @@
-@import '../variables.less';
+@import '../global.less';
 
 .@{prefixcls}_tag {
   display: inline-block;
+  width: fit-content;
+  height: auto;
   line-height: 20px;
   white-space: nowrap;
+  box-sizing: border-box;
   border-radius: 4px;
-  margin-inline-end: 8px;
-  padding-inline: 7px;
+  border:1px solid;
+  white-space: nowrap;
+  position:relative;
+  text-align: start;
+  margin-inline-end: var(--ant-margin-xs);
+  padding-inline: calc(8px - var(--ant-line-width));
+  font-size: 14px;
+
+  .@{prefixcls}_icon_close{
+    margin-inline-start: 3px;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      color: var(--ant-color-text-heading);
+    }
+  }
+
+  &_magenta {
+    color: var(--ant-magenta-7);
+    background: var(--ant-magenta-1);
+    border-color: var(--ant-magenta-3);
+  }
+
+  &_red {
+    color: var(--ant-red-7);
+    background: var(--ant-red-1);
+    border-color: var(--ant-red-3);
+  }
+
+  &_volcano {
+    color: var(--ant-volcano-7);
+    background: var(--ant-volcano-1);
+    border-color: var(--ant-volcano-3);
+  }
+
+  &_orange {
+    color: var(--ant-orange-7);
+    background: var(--ant-orange-1);
+    border-color: var(--ant-orange-3);
+  }
+
+  &_gold {
+    color: var(--ant-gold-7);
+    background: var(--ant-gold-1);
+    border-color: var(--ant-gold-3);
+  }
+
+  &_lime {
+    color: var(--ant-lime-7);
+    background: var(--ant-lime-1);
+    border-color: var(--ant-lime-3);
+  }
+
+  &_green {
+    color: var(--ant-green-7);
+    background: var(--ant-green-1);
+    border-color: var(--ant-green-3);
+  }
+
+  &_cyan {
+    color: var(--ant-cyan-7);
+    background: var(--ant-cyan-1);
+    border-color: var(--ant-cyan-3);
+  }
+
+  &_blue {
+    color: var(--ant-blue-7);
+    background: var(--ant-blue-1);
+    border-color: var(--ant-blue-3);
+  }
+
+  &_geekblue {
+    color: var(--ant-blue-7);
+    background: var(--ant-blue-1);
+    border-color: var(--ant-blue-3);
+  }
+
+  &_purple {
+    color: var(--ant-purple-7);
+    background: var(--ant-purple-1);
+    border-color: var(--ant-purple-3);
+  }
 }

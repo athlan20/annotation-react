@@ -46,7 +46,7 @@ export const Flex = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => 
   mergedStyle.justifyContent = justify;
   mergedStyle.alignItems = align;
 
-  console.log({ mergedStyle });
+  // console.log({ mergedStyle });
 
   return (
     <div ref={ref} className={mergedCls} style={mergedStyle} {...otherProps}>
