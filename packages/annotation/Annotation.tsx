@@ -200,6 +200,7 @@ export const Annotation = (props: PAnnotation) => {
    * click the exist annotation,than update it
    */
   function onAnnoClick(e: MouseEvent, mark: TAnnoDetail) {
+    if (readonly) return;
     lastSelection = [mark.start, mark.end];
     openModal(e);
   }
@@ -275,7 +276,7 @@ export const Annotation = (props: PAnnotation) => {
                     >
                       <Tag
                         role={'anno_tag'}
-                        closable={true}
+                        closable={readonly ? false : true}
                         onClick={(e) => onAnnoClick(e, anno)}
                         onClose={(e) => {
                           onDeleteAnno(e, anno);
