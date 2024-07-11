@@ -1,5 +1,5 @@
-import { sleep } from '@/annotation/helpers/helper';
-import { TTag } from '@/annotation/interface';
+import { sleep } from '../packages/annotation/helpers/helper';
+import { TTag } from '../packages/annotation/interface';
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, waitFor, within } from '@storybook/test';
 import { Annotation } from '../packages';
